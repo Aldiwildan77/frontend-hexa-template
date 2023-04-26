@@ -1,0 +1,18 @@
+{
+  "name": "frontend-hexa-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Aldiwildan77/frontend-hexa-template",
+  "author": "aldiwildan77 <aldiwild77@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "eslint": "^8.39.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier": "^2.8.8",
+    "typescript": "^5.0.4"
+  }
+}
