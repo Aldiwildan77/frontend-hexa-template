@@ -5,6 +5,7 @@ The main goal is to separate the business logic from the technical details. Also
 
 ## Minus
 
+- No support for Vite
 - No support for i18n
 - No support for a11y
 - No support for webvitals
