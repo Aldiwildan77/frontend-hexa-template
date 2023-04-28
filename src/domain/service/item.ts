@@ -1,6 +1,19 @@
-import { ItemRepository } from '../repository/item';
+import { autoInjectable } from 'tsyringe';
+import type { ItemRepository } from '../repository/item';
 
-export const ItemService = (itemRepository: ItemRepository) => ({
-  getItems: () => itemRepository.getItems(),
-  getItem: (id: number) => itemRepository.getItem(id),
-});
+@autoInjectable()
+export class ItemService {
+  itemRepository: ItemRepository;
+
+  constructor(itemRepository: ItemRepository) {
+    this.itemRepository = itemRepository;
+  }
+
+  getItems() {
+    return this.itemRepository.getItems();
+  }
+
+  getItem(id: number) {
+    return this.itemRepository.getItem(id);
+  }
+}

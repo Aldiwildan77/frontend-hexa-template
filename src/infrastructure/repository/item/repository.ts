@@ -1,11 +1,19 @@
-import { Item } from '../../../domain/model/item';
+import { autoInjectable } from 'tsyringe';
+import { Item } from '../../../domain/entity/item';
 import { ItemRepository } from '../../../domain/repository/item';
-import { Http } from '../../../pkg/http/http';
+import type { Http } from '../../http/http';
 import { Item as ItemDTO } from './dto';
 
-export const ItemRepositoryImpl = (http: Http): ItemRepository => ({
-  getItems: async () => {
-    const items = await http.get<ItemDTO[]>('/items');
+@autoInjectable()
+export class ItemRepositoryImpl implements ItemRepository {
+  http: Http;
+
+  constructor(http: Http) {
+    this.http = http;
+  }
+
+  getItems = async () => {
+    const items = await this.http.get<ItemDTO[]>('/items');
     return items.map(
       (item: ItemDTO): Item => ({
         id: item.id,
@@ -13,14 +21,15 @@ export const ItemRepositoryImpl = (http: Http): ItemRepository => ({
         description: item.description,
       }),
     );
-  },
-  getItem: async (id: number) => {
-    const item = await http.get<ItemDTO>(`/items/${id}`);
+  };
+
+  getItem = async (id: number) => {
+    const item = await this.http.get<ItemDTO>(`/items/${id}`);
     return {
       id: item.id,
       name: item.name,
       description: item.description,
       price: item.price,
     };
-  },
-});
+  };
+}

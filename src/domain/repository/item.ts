@@ -1,4 +1,4 @@
-import { Item } from '../model/item';
+import { Item } from '../entity/item';
 
 export interface ItemRepository {
   getItems: () => Promise<Item[]>;

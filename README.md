@@ -5,16 +5,17 @@ The main goal is to separate the business logic from the technical details. Also
 
 ## Minus
 
-- No support for `@Value` annotation
-- No support for `@Configuration` annotation
-- No support for `@Component` annotation
-- No support for `@Autowired` annotation
-
-- No support for State Machine
-- No support for Zod
 - No support for i18n
 - No support for a11y
 - No support for webvitals
+
+## Plus
+
+- Hexagonal Architecture
+- Support all frontend framework (react, react native, angular, and vue)
+- Support all frontend libraries
+- Support Dependency Injection using (tsyringe)
+- Support State Machine (xstate)
 
 ## Contact
 
